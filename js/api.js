@@ -1,4 +1,4 @@
-var webApp = angular.module('webApp', ['ngRoute']);
+var webApp = angular.module('webApp', ['ngRoute', 'ngProgress']);
 
 webApp.config(function($routeProvider){
 	$routeProvider

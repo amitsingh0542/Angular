@@ -1,6 +1,14 @@
 var controllers = {};
 
 
+controllers.MyTabCtrl = function($scope, $location, ngProgress) {
+    $scope.isActive = function(route) {
+        return route === $location.path();
+    }
+    ngProgress.start();
+    ngProgress.complete();
+};
+
 controllers.userController = function($scope){
 	$scope.countries = [{id: '1', name: 'India'},
 		{id: '2', name: 'New York'},
@@ -20,11 +28,6 @@ controllers.UserList = function($scope, $http) {
     });
 };
 
-controllers.MyTabCtrl = function($scope, $location) {
-    $scope.isActive = function(route) {
-        return route === $location.path();
-    }
-};
 
 webApp.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
