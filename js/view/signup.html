@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <h1>Sign up for Web App</h1>
+  <form name="signupForm">
+  	<p>
+		<label>First Name:</label>
+	</p>
+	<p  class="nospace">
+		<input type="text" name="fname" value="" placeholder="First Name" ng-model="user.fname"  ng-minlength="5" required>
+		<span ng-show="signupForm.fname.$dirty && signupForm.fname.$error.required">Required !</span>
+		<span ng-show="signupForm.fname.$dirty && signupForm.fname.$error.minlength">first name length is too short !</span>
+	</p>
+  	<p>
+		<label>Last Name:</label>
+	</p>
+	<p  class="nospace">
+		<input type="text" name="lname" value="" placeholder="Last Name" ng-model="user.lname"  ng-minlength="5" required>
+		<span ng-show="signupForm.lname.$dirty && signupForm.lname.$error.required">Required !</span>
+		<span ng-show="signupForm.lname.$dirty && signupForm.lname.$error.minlength">last name length is too short !</span>
+	</p>
+  	<p>
+		<label>Email:</label>
+	</p>
+	<p  class="nospace">
+		<input type="email" name="email" value="" placeholder="Email" ng-model="user.email"  required>
+		<span ng-show="signupForm.email.$dirty && signupForm.email.$error.required">Required !</span>
+		<span ng-show="signupForm.email.$dirty && signupForm.email.$error.email">not a valid email !</span>
+	</p>
+  	<p>
+		<label>Password:</label>
+	</p>
+	<p  class="nospace">
+		<input type="password" name="password" value="" placeholder="Password" ng-model="user.password" ng-minlength="5" ng-maxlength="10"  required>
+		<span ng-show="signupForm.password.$dirty && signupForm.password.$error.required">Required !</span>
+		<span ng-show="signupForm.password.$dirty && signupForm.password.$error.minlength">password length is too short !</span>
+		<span ng-show="signupForm.password.$dirty && signupForm.password.$error.maxlength">password length is too long !</span>
+	</p>
+  	<p>
+		<label>Confirm Password:</label>
+	</p>
+	<p  class="nospace">
+		<input type="password" name="cpassword" value="" placeholder="Confirm Password" ng-model="user.cpassword" ng-minlength="5" ng-maxlength="10"  required>
+		<span ng-show="signupForm.cpassword.$dirty && signupForm.cpassword.$error.required">Required !</span>
+		<span ng-show="signupForm.cpassword.$dirty && signupForm.cpassword.$error.minlength">password length is too short !</span>
+		<span ng-show="signupForm.cpassword.$dirty && signupForm.cpassword.$error.maxlength">password length is too long !</span>
+	</p>
+	<p>
+		<label>Country:</label>
+	</p>
+	<p  class="nospace" ng-controller="userController">
+		<select>
+			<option ng-repeat="country in countries" value="{{ country.id }}">{{ country.name }}</option>
+		</select>
+	</p>
+	<p class="submit"><input type="submit" name="commit" value="Login" ng-disabled="signupForm.$invalid"></p>
+  </form>
+</div>

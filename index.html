@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html ng-app="webApp">
+		<head>
+			<title ng-bind="title"></title>	
+			<link rel="stylesheet" href="css/style.css">
+			<!--[if lt IE 9]>
+				<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->	
+			<base href="#/" />			
+		</head>
+		<body>
+			<div id='cssmenu'>
+				<ul id="menu-bar" ng-controller="MyTabCtrl">
+					<li ng-class="{active:isActive('/')}"><a href="#/">Sign in</a></li>
+					<!--li><a href="#">Products</a>
+					<ul>
+					<li><a href="#">Products Sub Menu 1</a></li>
+					<li><a href="#">Products Sub Menu 2</a></li>
+					<li><a href="#">Products Sub Menu 3</a></li>
+					<li><a href="#">Products Sub Menu 4</a></li>
+					</ul>
+					</li>
+					<li><a href="#">Services</a>
+					<ul>
+					<li><a href="#">Services Sub Menu 1</a></li>
+					<li><a href="#">Services Sub Menu 2</a></li>
+					<li><a href="#">Services Sub Menu 3</a></li>
+					<li><a href="#">Services Sub Menu 4</a></li>
+					</ul>
+					</li-->
+					<li ng-class="{active:isActive('/signup')}"><a href="#/signup">Sign up</a></li>
+					<li ng-class="{active:isActive('/userlist')}"><a href="#/userlist">User List</a></li>
+				</ul>
+			</div>
+			<section class="container">
+				<div ng-view=""></div>
+			</section>
+			<script type="text/javascript" src="js/api/angular.min.js"></script>
+			<script src="js/api/angular-route.min.js"></script>
+			<script type="text/javascript" src="js/api/jquery.min.js"></script>
+			
+			<script type="text/javascript" src="js/api.js"></script>
+			<script type="text/javascript" src="js/controllers/userController.js"></script>			
+		</body>
+	</html>

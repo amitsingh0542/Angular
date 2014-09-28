@@ -1,0 +1,22 @@
+<div class="wrapper table-layout">
+	<h1>User list</h1>
+	<div ng-controller="UserList">
+		<p>Search : <input ng-model="name" type="text" /></p>
+		<table class="gridtable">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Phone</th>
+				<th>Address</th>
+			</tr>
+			<tr ng-repeat="list in listData | filter:name | orderBy:'name'">
+				<td>{{list.name}}</td>
+				<td>{{list.email}}</td>
+				<td>{{list.gender}}</td>
+				<td>{{list.phone}}</td>
+				<td>{{list.address}}</td>
+			</tr>	
+		</table>	
+	</div>
+</div>

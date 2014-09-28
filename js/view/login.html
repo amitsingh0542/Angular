@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h1>Login to Web App</h1>
+  <form name="loginForm">
+	<p>
+		<label>Email:</label>
+	</p>
+	<p class="nospace">
+		<input type="email" name="email" value=""  placeholder="Email" ng-model="user.email" required /></p>
+		<span ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Required !</span>
+		<span ng-show="loginForm.email.$dirty && loginForm.email.$error.email">not a email !</span>
+	</p>
+	<p>
+		<label>Password:</label>
+	</p>
+	<p  class="nospace"> 
+		<input type="password" name="password" value="" placeholder="Password" ng-model="user.password"  ng-minlength="5" ng-maxlength="10	" required />
+		<span ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Required !</span>
+		<span ng-show="loginForm.password.$dirty && loginForm.password.$error.minlength">password length is very short !</span>
+		<span ng-show="loginForm.password.$dirty && loginForm.password.$error.maxlength">password length is too long !</span>
+	</p>
+	
+	<p class="remember_me">
+	  <label>
+		<input type="checkbox" name="remember_me" id="remember_me">
+		Remember me on this computer
+	  </label>
+	</p>
+	<p class="submit"><input type="submit" name="commit" value="Login" ng-disabled="loginForm.$invalid"></p>
+  </form>
+</div>
