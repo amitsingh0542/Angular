@@ -1,4 +1,4 @@
-var webApp = angular.module('webApp', ['ngRoute', 'ngProgress']);
+var webApp = angular.module('webApp', ['ngRoute', 'ngProgress', 'ngAnimate', 'ngTouch']);
 
 webApp.config(function($routeProvider){
 	$routeProvider
@@ -18,6 +18,12 @@ webApp.config(function($routeProvider){
 			{
 				title: 'User List',
 				templateUrl: 'js/view/userlist.html'
+			}	
+		)
+	.when( '/photo-gallery',
+			{
+				title: 'Photo Gallery',
+				templateUrl: 'js/view/photo-gallery.html'
 			}	
 		)
 	.otherwise({ redirectTo : '/' });
