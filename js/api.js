@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp', ['ngRoute', 'ngProgress', 'ngAnimate', 'ngTouch']);
+var webApp = angular.module('webApp', ['ngRoute', 'ngProgress', 'ngAnimate', 'ngTouch', 'facebook']);
 
-webApp.config(function($routeProvider){
+webApp.config(function($routeProvider, FacebookProvider){
 	$routeProvider
 	.when( '/',
 			{
@@ -27,4 +27,9 @@ webApp.config(function($routeProvider){
 			}	
 		)
 	.otherwise({ redirectTo : '/' });
+	
+	var myAppId = '859117657441517';
+	
+	FacebookProvider.init(myAppId);
+
 });
