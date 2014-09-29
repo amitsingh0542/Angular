@@ -1,4 +1,4 @@
-var webApp = angular.module('webApp', ['ngRoute', 'ngProgress', 'ngAnimate', 'ngTouch', 'facebook']);
+var webApp = angular.module('webApp', ['ngRoute', 'ngProgress', 'ngAnimate', 'ngTouch', 'facebook', 'directive.g+signin']);
 
 webApp.config(function($routeProvider, FacebookProvider){
 	$routeProvider
@@ -26,10 +26,22 @@ webApp.config(function($routeProvider, FacebookProvider){
 				templateUrl: 'js/view/photo-gallery.html'
 			}	
 		)
+	.when( '/glogin',
+			{
+				title: 'Facebook',
+				templateUrl: 'js/view/google.html'
+			}	
+		)
+	.when( '/sociallogin',
+			{
+				title: 'Facebook',
+				templateUrl: 'js/view/facebook.html'
+			}	
+		)
 	.otherwise({ redirectTo : '/' });
 	
 	var myAppId = '859117657441517';
 	
 	FacebookProvider.init(myAppId);
-
+	
 });
