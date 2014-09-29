@@ -64,7 +64,6 @@ controllers.UserList = function($scope, $http) {
     });
 };
 
-
 controllers.MainController = function ($scope, $timeout, Facebook) {
 	// Define user empty data :/
 	$scope.user = {};
@@ -161,10 +160,7 @@ controllers.MainController = function ($scope, $timeout, Facebook) {
 	});
 };
 
-/**
-* Just for debugging purposes.
-* Shows objects in a pretty way
-*/
+
 webApp.directive('debug', function() {
 	return {
 		restrict:	'E',
@@ -180,6 +176,17 @@ webApp.directive('debug', function() {
 		}
 	}
 });
+
+controllers.GoogleCtrl = function ($scope) {
+	$scope.$on('event:google-plus-signin-success', function (event, authResult) {
+	  // User successfully authorized the G+ App!
+	  console.log('Signed in!');
+	});
+	$scope.$on('event:google-plus-signin-failure', function (event, authResult) {
+	  // User has not authorized the G+ App!
+	  console.log('Not signed into Google Plus.');
+	});
+}
 
 webApp.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
